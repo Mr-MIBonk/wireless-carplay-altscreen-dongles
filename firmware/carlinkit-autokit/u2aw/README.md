@@ -1,9 +1,9 @@
 # Carlinkit 4.0 (U2AW)
 
-<img src="../../docs/images/carlinkit-4.0.png" width="240">
+<img src="../../../docs/images/carlinkit-4.0.png" width="240">
 
 > [!CAUTION]
-> Use at your own risk, no warranty. Read the [main page](../../README.md) first.
+> Use at your own risk, no warranty. Read the [main page](../../../README.md) first.
 > This adapter was bricked once during development and was recovered only with an SPI programmer.
 
 ## Hardware

@@ -1,9 +1,9 @@
 # Ottocast CA530 (ly5140)
 
-<img src="../../docs/images/ottocast-ca530.jpg" width="240">
+<img src="../../../docs/images/ottocast-ca530.jpg" width="240">
 
 > [!CAUTION]
-> Use at your own risk, no warranty. Read the [main page](../../README.md) first.
+> Use at your own risk, no warranty. Read the [main page](../../../README.md) first.
 
 ## Hardware
 
@@ -22,7 +22,7 @@ A small library `libLyH.so` is loaded into the adapter's CarPlay services (`LD_P
 
 - `changeMapZoomLevel` from the car is forwarded to the iPhone (stock firmware threw it away).
 - The `showUI` URL from the car is passed through instead of a hardcoded one, so **View** switches between map views.
-- The iPhone is told about the cluster's `viewAreas` and `adjacentViewAreas`, so the safe area and layout match the cable.
+- The iPhone is told that the cluster has `viewAreas`, so the safe area and layout match the cable. (The `adjacentViewAreas` patch in this build never applies: its check bytes do not match, and it is not needed for the result above.)
 - Turn-by-turn (iAP2 `0x52xx`) already passes through the adapter. The head unit side needs native guidance bridge **0.6.4 or newer** from [MHI2-Carplay-Maps](https://github.com/zakklmv/MHI2-Carplay-Maps), which handles the short guidance reply Ottocast sends.
 
 ## File
@@ -66,4 +66,6 @@ Upload the stock `ottocast.img` from Ottocast with the same `curl.exe` command. 
 
 - Works only with `26101218.5140.2`. A newer Ottocast firmware needs a new build; with other code the patch is skipped.
 - **Do not flash this image on an LY5101 box** (`26102109.5101.x`). It decrypts the same way but the LED config is different and it talks to a different MFi chip.
+- **Do not flash this image on a Carlinkit Mini Ultra 3** (`26011618.6238.x`). It is the same platform, but the code addresses differ; use [its own image](../ly6238-carlinkit-mini-ultra3/).
+- **Do not flash this image on an ly7101 box** (`26102410.7101.x`). It is an ARM adapter, this image is RISC-V; use [its own image](../ly7101-smartbox/).
 - USB update and flash recovery were not tried on this adapter.

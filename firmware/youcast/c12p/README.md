@@ -1,9 +1,9 @@
 # YouCast YCA01 (C12P)
 
-<img src="../../docs/images/youcast-yca01.png" width="240">
+<img src="../../../docs/images/youcast-yca01.png" width="240">
 
 > [!CAUTION]
-> Use at your own risk, no warranty. Read the [main page](../../README.md) first.
+> Use at your own risk, no warranty. Read the [main page](../../../README.md) first.
 
 ## Hardware
 

@@ -14,11 +14,18 @@ Modified firmware for wireless CarPlay adapters that carries the **Apple Maps cl
 
 ## Supported adapters
 
+Adapters are grouped by the software platform inside them, not by brand: the same brand can use different platforms, and different brands can share one.
+
 | | Adapter | Based on | Cluster map | Zoom / View | Turn-by-turn | USB | HTTP | Flash |
 |---|---|---|:-:|:-:|:-:|:-:|:-:|:-:|
-| <img src="docs/images/ottocast-ca530.jpg" width="70"> | [**Ottocast** CA530 (ly5140)](firmware/ottocast/) | `26101218.5140.2` | ✅ stock | ✅ | ✅ | — | ✅ | — |
-| <img src="docs/images/carlinkit-4.0.png" width="70"> | [**Carlinkit 4.0** (U2AW)](firmware/carlinkit/) | `2023.10.16.0952` | ✅ | ✅ | ✅ | ⚠️ ¹ | — ² | ✅ ³ |
-| <img src="docs/images/youcast-yca01.png" width="70"> | [**YouCast** YCA01 (C12P)](firmware/youcast/) | `25102301.C12P` | ✅ | ✅ | ✅ | — | ✅ | ✅ ³ |
+| | **[Liaoyuan (LY) platform](firmware/liaoyuan/)** | | | | | | | |
+| <img src="docs/images/ottocast-ca530.jpg" width="70"> | [**Ottocast** CA530 (ly5140)](firmware/liaoyuan/ly5140-ottocast-ca530/) | `26101218.5140.2` | ✅ stock | ✅ | ✅ | — | ✅ | — |
+| <img src="docs/images/Carlinkit-Mini-Ultra-3.webp" width="70"> | [**Carlinkit Mini Ultra 3** (ly6238)](firmware/liaoyuan/ly6238-carlinkit-mini-ultra3/) | `26011618.6238.2` | ✅ stock | ⚠️ ⁴ | ✅ | — | ✅ | — |
+| <img src="docs/images/ly7101.png" width="70"> | [**No-name "smartBox"** (ly7101)](firmware/liaoyuan/ly7101-smartbox/) | `26102410.7101.2` | ✅ stock | ✅ | ✅ | — | ✅ | — |
+| | **Carlinkit Autokit platform** | | | | | | | |
+| <img src="docs/images/carlinkit-4.0.png" width="70"> | [**Carlinkit 4.0** (U2AW)](firmware/carlinkit-autokit/u2aw/) | `2023.10.16.0952` | ✅ | ✅ | ✅ | ⚠️ ¹ | — ² | ✅ ³ |
+| | **YouCast platform** | | | | | | | |
+| <img src="docs/images/youcast-yca01.png" width="70"> | [**YouCast** YCA01 (C12P)](firmware/youcast/c12p/) | `25102301.C12P` | ✅ | ✅ | ✅ | — | ✅ | ✅ ³ |
 
 ✅ works and was tested · ⚠️ built or seen working, not fully confirmed · ❌ not done yet · — not available
 
@@ -27,8 +34,9 @@ Modified firmware for wireless CarPlay adapters that carries the **Apple Maps cl
 - **Flash**: write the SPI flash chip directly with a programmer and a SOIC-8 clip. This is the recovery path when nothing else boots.
 
 ¹ The USB image is built and checked offline but has not been flashed to a real adapter yet.
-² Carlinkit has no HTTP upload here. The tested install is over SSH, see [firmware/carlinkit](firmware/carlinkit/).
+² Carlinkit 4.0 has no HTTP upload here. The tested install is over SSH, see [its page](firmware/carlinkit-autokit/u2aw/).
 ³ Recovery only: write back a full dump of **your own** chip, taken before you change anything.
+⁴ **View** works; zoom is not confirmed in the car yet.
 
 ## What the firmware adds
 
@@ -39,7 +47,7 @@ The head unit offers CarPlay a second display, the instrument cluster. Stock ada
 - passes the cluster's safe areas to the iPhone, so the map layout matches the cable connection;
 - relays route guidance (iAP2 `0x52xx`): arrows, lanes, street name.
 
-Details for each adapter: [Ottocast](firmware/ottocast/), [Carlinkit](firmware/carlinkit/), [YouCast](firmware/youcast/).
+Details for each adapter are on its page; for an LY adapter start with [how to find your adapter](firmware/liaoyuan/).
 
 ## Requirements
 
@@ -59,12 +67,17 @@ Tested only on **MHI2 MU1440 + 790 Active Info Display (AID 10.5)**, Škoda, wit
 
 ```
 firmware/
-  ottocast/   ottocast_lyh.img             HTTP image
-  carlinkit/  U2AW_AUTOKIT_Update.img      USB image
-              ssh/                         libcl.so + install / uninstall scripts
-  youcast/    c12p_050-4-32bc9459-rel.img  HTTP image
-docs/images/                               adapter photos
-SHA256SUMS.txt                             checksums of everything in firmware/
+  liaoyuan/                        Liaoyuan (LY) platform: README tells which folder fits
+    ly5140-ottocast-ca530/         ottocast_lyh.img          HTTP image
+    ly6238-carlinkit-mini-ultra3/  mini-ultra3_lyh.img       HTTP image
+    ly7101-smartbox/               ly7101_lyh.img            HTTP image
+  carlinkit-autokit/
+    u2aw/                          U2AW_AUTOKIT_Update.img   USB image
+                                   ssh/                      libcl.so + install / uninstall scripts
+  youcast/
+    c12p/                          c12p_050-4-32bc9459-rel.img  HTTP image
+docs/images/                       adapter photos
+SHA256SUMS.txt                     checksums of everything in firmware/
 ```
 
 Check the download before flashing:
