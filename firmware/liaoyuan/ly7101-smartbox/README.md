@@ -84,6 +84,6 @@ Upload the stock `update.img` (link above) with the same `curl.exe` command. Thi
 ## Known issues
 
 - Works only with `26102410.7101.2`. A newer firmware needs a new build; with other code the patches are skipped.
-- **Do not flash Ottocast, Mini Ultra 3 or other LY images on this box**, and do not flash this image on them. An `ly5101` image uploaded to this box was not installed and the box stayed on stock, but do not count on that; a RISC-V library from those images cannot load here.
+- **Do not flash Ottocast (CA530, CA525-T2), Mini Ultra 3 or other LY images on this box**, and do not flash this image on them. An `ly5101` image uploaded to this box was not installed and the box stayed on stock, but do not count on that; a RISC-V library from those images (ly5101, ly5140, ly6071, ly6238) cannot load here.
 - Many very short power-ons in a row (under ~15 s each) also use up the boot counter and switch the library off. Upload a new build to arm it again.
 - USB update and flash recovery were not tried on this adapter.

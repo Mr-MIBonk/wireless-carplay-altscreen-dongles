@@ -68,4 +68,5 @@ Upload the stock `ottocast.img` from Ottocast with the same `curl.exe` command. 
 - **Do not flash this image on an LY5101 box** (`26102109.5101.x`). It decrypts the same way but the LED config is different and it talks to a different MFi chip.
 - **Do not flash this image on a Carlinkit Mini Ultra 3** (`26011618.6238.x`). It is the same platform, but the code addresses differ; use [its own image](../ly6238-carlinkit-mini-ultra3/).
 - **Do not flash this image on an ly7101 box** (`26102410.7101.x`). It is an ARM adapter, this image is RISC-V; use [its own image](../ly7101-smartbox/).
+- **Do not flash this image on an Ottocast CA525-T2** (`26101215.6071.x`). Same platform, but the code addresses differ; use [its own image](../ly6071-ottocast-ca525-t2/).
 - USB update and flash recovery were not tried on this adapter.

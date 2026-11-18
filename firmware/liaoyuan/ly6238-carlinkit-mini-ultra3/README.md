@@ -91,4 +91,5 @@ Upload the stock `update.img` (link above) with the same `curl.exe` command. Thi
 - Works only with `26011618.6238.2`. A newer firmware needs a new build; with other code the patches are skipped.
 - **Do not flash this image on an Ottocast ly5140 or an LY5101 box**, and do not flash the Ottocast image on this one. They decrypt the same way, but the code addresses are different.
 - **Do not flash this image on an ly7101 box** (`26102410.7101.x`). It is an ARM adapter, this image is RISC-V; use [its own image](../ly7101-smartbox/).
+- **Do not flash this image on an Ottocast CA525-T2** (`26101215.6071.x`). Same platform, but the code addresses differ; use [its own image](../ly6071-ottocast-ca525-t2/).
 - USB update and flash recovery were not tried on this adapter.

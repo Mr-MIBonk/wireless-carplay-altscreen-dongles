@@ -20,6 +20,7 @@ Adapters are grouped by the software platform inside them, not by brand: the sam
 |---|---|---|:-:|:-:|:-:|:-:|:-:|:-:|
 | | **[Liaoyuan (LY) platform](firmware/liaoyuan/)** | | | | | | | |
 | <img src="docs/images/ottocast-ca530.jpg" width="70"> | [**Ottocast** CA530 (ly5140)](firmware/liaoyuan/ly5140-ottocast-ca530/) | `26101218.5140.2` | ✅ stock | ✅ | ✅ | — | ✅ | — |
+| <img src="docs/images/ottocast-ca525-t2.jpeg" width="70"> | [**Ottocast** CA525-T2 (ly6071)](firmware/liaoyuan/ly6071-ottocast-ca525-t2/) | `26101215.6071.2` | ⚠️ stock ⁵ | ⚠️ ⁵ | ⚠️ ⁵ | — | ⚠️ ⁵ | — |
 | <img src="docs/images/Carlinkit-Mini-Ultra-3.webp" width="70"> | [**Carlinkit Mini Ultra 3** (ly6238)](firmware/liaoyuan/ly6238-carlinkit-mini-ultra3/) | `26011618.6238.2` | ✅ stock | ⚠️ ⁴ | ✅ | — | ✅ | — |
 | <img src="docs/images/ly7101.png" width="70"> | [**No-name "smartBox"** (ly7101)](firmware/liaoyuan/ly7101-smartbox/) | `26102410.7101.2` | ✅ stock | ✅ | ✅ | — | ✅ | — |
 | | **Carlinkit Autokit platform** | | | | | | | |
@@ -37,6 +38,7 @@ Adapters are grouped by the software platform inside them, not by brand: the sam
 ² Carlinkit 4.0 has no HTTP upload here. The tested install is over SSH, see [its page](firmware/carlinkit-autokit/u2aw/).
 ³ Recovery only: write back a full dump of **your own** chip, taken before you change anything.
 ⁴ **View** works; zoom is not confirmed in the car yet.
+⁵ Same changes as the CA530, ported to this firmware. Built and checked offline only, not installed on a real adapter yet.
 
 ## What the firmware adds
 
@@ -69,6 +71,7 @@ Tested only on **MHI2 MU1440 + 790 Active Info Display (AID 10.5)**, Škoda, wit
 firmware/
   liaoyuan/                        Liaoyuan (LY) platform: README tells which folder fits
     ly5140-ottocast-ca530/         ottocast_lyh.img          HTTP image
+    ly6071-ottocast-ca525-t2/      ly6071_lyh.img            HTTP image
     ly6238-carlinkit-mini-ultra3/  mini-ultra3_lyh.img       HTTP image
     ly7101-smartbox/               ly7101_lyh.img            HTTP image
   carlinkit-autokit/
